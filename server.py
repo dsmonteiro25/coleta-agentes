@@ -1,4 +1,3 @@
-# server.py
 from mesa.visualization.ModularVisualization import ModularServer
 from mesa.visualization.modules import CanvasGrid
 from model import PlanetModel
@@ -23,18 +22,15 @@ def agent_portrayal(agent):
         portrayal["Layer"] = 2
     return portrayal
 
-# Configura o grid de visualização
 grid = CanvasGrid(agent_portrayal, 20, 20, 500, 500)
 
-# Configura o servidor
 server = ModularServer(
     PlanetModel,
     [grid],
     "Planet Resource Collection",
-    {"width": 20, "height": 20, "num_crystals": 30, "num_metals": 20, "num_structures": 10, "obstacle_ratio": 0.2}
+    {"width": 20, "height": 20, "num_crystals": 30, "num_metals": 20, "num_structures": 10}
 )
 
-# Define a porta (opcional, padrão é 8521)
 server.port = 8521
 
 if __name__ == "__main__":
